@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootPointAutoScript : MonoBehaviour
+public class CannonShooting : MonoBehaviour
 {
     [SerializeField] private Transform _laser;
     [SerializeField] private float _laserDistance = 0.2f;
