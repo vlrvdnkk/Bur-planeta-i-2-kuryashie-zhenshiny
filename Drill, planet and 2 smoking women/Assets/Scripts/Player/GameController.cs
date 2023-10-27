@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     private float _timeBeforeSpawning = 1.5f;
     private float _timeBetweenEnemies = 0.25f;
     private float _timeBeforeWaves = 2.0f;
-    public int enemiesPerWave = 6;
+    public int enemiesPerWave = 3;
     public int currentNumberOfEnemies = 0;
     public int score = 0;
     [SerializeField] private int _waveNumber = 0;

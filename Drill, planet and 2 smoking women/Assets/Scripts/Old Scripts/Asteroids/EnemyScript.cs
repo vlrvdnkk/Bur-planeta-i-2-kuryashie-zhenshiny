@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using Unity.VisualScripting;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -40,12 +39,9 @@ public class EnemyScript : MonoBehaviour
             //anim.SetBool("death", true);
             //Destroy(this.gameObject);
             //GameController controller = GameObject.Find("GameController").GetComponent("GameController") as GameController;
-            HpBar controllerhp = GameObject.Find("HPbarBase").GetComponent("HpBar") as HpBar;
             //controller.KilledEnemy();
-            damage:
-            controllerhp.DamagePlayer(1);
-            StartCoroutine(Timer());
-            goto damage;
+
+            StartCoroutine(DamagePlayerPeriodically());
         }
         if (health <= 0)
         {
@@ -67,8 +63,13 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    IEnumerator Timer()
+    private IEnumerator DamagePlayerPeriodically()
     {
-        yield return new WaitForSeconds(3f);
+        HpBar controllerhp = GameObject.Find("HPbarBase").GetComponent("HpBar") as HpBar;
+        while (true)
+        {
+            controllerhp.DamagePlayer(1); // Наносим урон игроку
+            yield return new WaitForSeconds(3.0f); // Ждем 3 секунды
+        }
     }
 }
