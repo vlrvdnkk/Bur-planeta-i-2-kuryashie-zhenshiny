@@ -490,6 +490,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7907831345548119825, guid: 1903a60440b5ea440a50bce24d9a5c3c, type: 3}
+      propertyPath: gunTransform
+      value: 
+      objectReference: {fileID: 1231637584}
+    - target: {fileID: 7907831345548119825, guid: 1903a60440b5ea440a50bce24d9a5c3c, type: 3}
+      propertyPath: normalSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2da42cd1d2ab3bc418d083a3adc85f37, type: 3}
+    - target: {fileID: 7907831345548119825, guid: 1903a60440b5ea440a50bce24d9a5c3c, type: 3}
+      propertyPath: mirroredSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 870bb17e7d6f0c64288b8855d3f32cdf, type: 3}
+    - target: {fileID: 7907831345548119825, guid: 1903a60440b5ea440a50bce24d9a5c3c, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1231637585}
+    - target: {fileID: 7907831345548119838, guid: 1903a60440b5ea440a50bce24d9a5c3c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 870bb17e7d6f0c64288b8855d3f32cdf, type: 3}
     - target: {fileID: 7907831346435748683, guid: 1903a60440b5ea440a50bce24d9a5c3c, type: 3}
       propertyPath: m_Name
       value: Cannon
@@ -1569,6 +1589,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1231637584 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7907831345548119837, guid: 1903a60440b5ea440a50bce24d9a5c3c, type: 3}
+  m_PrefabInstance: {fileID: 223467917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1231637585 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7907831345548119838, guid: 1903a60440b5ea440a50bce24d9a5c3c, type: 3}
+  m_PrefabInstance: {fileID: 223467917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1277008101
 GameObject:
   m_ObjectHideFlags: 0
