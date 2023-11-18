@@ -1,39 +1,45 @@
 using UnityEngine;
 
-public class CannonDragAndDrop : MonoBehaviour
+public class CannonDragAndDrop: MonoBehaviour
 {
+    [SerializeField] private CannonRotation cannonRotation;
+    [SerializeField] private CannonShooting cannonShooting;
+
     private bool isDragging = false;
-    private Transform slot = null;
+    private Vector3 offset;
 
     void OnMouseDown()
     {
         isDragging = true;
+        offset = transform.position - GetMouseWorldPos();
     }
 
     void OnMouseDrag()
     {
         if (isDragging)
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector3(mousePosition.x, mousePosition.y, 0f);
+            transform.position = GetMouseWorldPos() + offset;
         }
     }
 
     void OnMouseUp()
     {
         isDragging = false;
-        if (slot != null)
-        {
-            transform.position = slot.position;
-            // Активируйте пушку, так как она прикреплена к ячейке.
-        }
+    }
+
+    private Vector3 GetMouseWorldPos()
+    {
+        Vector3 mousePoint = Input.mousePosition;
+        mousePoint.z = Camera.main.transform.position.z;
+        return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Slot"))
         {
-            slot = other.transform;
+            SnapToSlot(other.transform.position);
+            ActivateCannon();
         }
     }
 
@@ -41,8 +47,24 @@ public class CannonDragAndDrop : MonoBehaviour
     {
         if (other.CompareTag("Slot"))
         {
-            slot = null;
-            // Деактивируйте пушку, так как она откреплена от ячейки.
+            DeactivateCannon();
         }
+    }
+
+    private void SnapToSlot(Vector3 slotPosition)
+    {
+        transform.position = slotPosition;
+    }
+
+    private void ActivateCannon()
+    {
+        cannonRotation.enabled = true;
+        cannonShooting.enabled = true;
+    }
+
+    private void DeactivateCannon()
+    {
+        cannonRotation.enabled = false;
+        cannonShooting.enabled = false;
     }
 }

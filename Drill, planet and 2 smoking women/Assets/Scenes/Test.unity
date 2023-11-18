@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 33293738}
   m_Layer: 0
   m_Name: Slot 2
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,6 +444,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 879432368863057108, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3153024323616917326, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
       propertyPath: rotationSpeed
       value: 1
@@ -451,6 +455,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5531003967781251378, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
     - {fileID: 3153024323616917326, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
+    - {fileID: 879432368863057115, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
 --- !u!1 &174347894
 GameObject:
@@ -686,7 +691,7 @@ GameObject:
   - component: {fileID: 395784891}
   m_Layer: 0
   m_Name: Slot 1
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -797,7 +802,7 @@ GameObject:
   - component: {fileID: 502388812}
   m_Layer: 0
   m_Name: Slot 4
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1491,7 +1496,7 @@ GameObject:
   - component: {fileID: 1160411894}
   m_Layer: 0
   m_Name: Slot 5
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1779,7 +1784,7 @@ GameObject:
   - component: {fileID: 1362150332}
   m_Layer: 0
   m_Name: Slot 6
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1929,7 +1934,7 @@ GameObject:
   - component: {fileID: 1443246531}
   m_Layer: 0
   m_Name: Slot 3
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2643,3 +2648,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072987eb3e4ebc746891e39592e8df64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cannonRotation: {fileID: 1904652251}
+  cannonShooting: {fileID: 909830367}
