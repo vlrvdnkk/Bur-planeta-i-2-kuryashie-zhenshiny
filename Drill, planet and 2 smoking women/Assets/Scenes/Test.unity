@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 33293737}
   - component: {fileID: 33293739}
   - component: {fileID: 33293738}
+  - component: {fileID: 33293740}
   m_Layer: 0
   m_Name: Slot 2
   m_TagString: Slot
@@ -268,7 +269,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -336,6 +337,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &33293740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33293736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434aa8533287832418fd34034a2785e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonDragAndDrop: {fileID: 415483214}
 --- !u!1 &88451737
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +398,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 879432367311761611, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 879432368803351682, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -398,15 +416,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 879432368803351682, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 879432368803351682, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.945
+      value: -4.89
       objectReference: {fileID: 0}
     - target: {fileID: 879432368803351682, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.187
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 879432368803351682, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
       propertyPath: m_LocalPosition.z
@@ -444,12 +462,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: AutoCannon
       objectReference: {fileID: 0}
+    - target: {fileID: 879432368803351709, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 879432368863057104, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 879432368863057108, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 879432368863057108, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 879432368863057109, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3153024323616917326, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
@@ -693,6 +723,7 @@ GameObject:
   - component: {fileID: 395784890}
   - component: {fileID: 395784892}
   - component: {fileID: 395784891}
+  - component: {fileID: 395784893}
   m_Layer: 0
   m_Name: Slot 1
   m_TagString: Slot
@@ -725,7 +756,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -793,6 +824,76 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &395784893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395784889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434aa8533287832418fd34034a2785e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonDragAndDrop: {fileID: 0}
+--- !u!1 &415483211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 879432368803351709, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
+  m_PrefabInstance: {fileID: 164243746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &415483213
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415483211}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.01906363, y: -0.33653376}
+  serializedVersion: 2
+  m_Radius: 0.15441218
+--- !u!114 &415483214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415483211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072987eb3e4ebc746891e39592e8df64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonRotation: {fileID: 1904652251}
+  cannonShooting: {fileID: 909830367}
+  isOverSlot: 0
+--- !u!50 &415483216
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415483211}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &502388810
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +905,7 @@ GameObject:
   - component: {fileID: 502388811}
   - component: {fileID: 502388813}
   - component: {fileID: 502388812}
+  - component: {fileID: 502388814}
   m_Layer: 0
   m_Name: Slot 4
   m_TagString: Slot
@@ -836,7 +938,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -904,6 +1006,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &502388814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502388810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434aa8533287832418fd34034a2785e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonDragAndDrop: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,8 +1380,8 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.762865, y: 13.6859045}
       - {x: -2.5229046, y: 13.716966}
-      - {x: -0.059348345, y: -0.8090172}
-      - {x: 0.024515882, y: -0.79999286}
+      - {x: -0.044472802, y: -0.81248826}
+      - {x: 0.06418399, y: -0.8104059}
       - {x: 3.1790874, y: 13.612276}
 --- !u!114 &909830367
 MonoBehaviour:
@@ -1498,6 +1613,7 @@ GameObject:
   - component: {fileID: 1160411893}
   - component: {fileID: 1160411895}
   - component: {fileID: 1160411894}
+  - component: {fileID: 1160411896}
   m_Layer: 0
   m_Name: Slot 5
   m_TagString: Slot
@@ -1530,7 +1646,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1598,6 +1714,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1160411896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160411892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434aa8533287832418fd34034a2785e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonDragAndDrop: {fileID: 0}
 --- !u!4 &1231637584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7907831345548119837, guid: 1903a60440b5ea440a50bce24d9a5c3c, type: 3}
@@ -1786,6 +1915,7 @@ GameObject:
   - component: {fileID: 1362150331}
   - component: {fileID: 1362150333}
   - component: {fileID: 1362150332}
+  - component: {fileID: 1362150334}
   m_Layer: 0
   m_Name: Slot 6
   m_TagString: Slot
@@ -1818,7 +1948,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1886,6 +2016,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1362150334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362150330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434aa8533287832418fd34034a2785e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonDragAndDrop: {fileID: 0}
 --- !u!1 &1410465768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,6 +2079,7 @@ GameObject:
   - component: {fileID: 1443246530}
   - component: {fileID: 1443246532}
   - component: {fileID: 1443246531}
+  - component: {fileID: 1443246533}
   m_Layer: 0
   m_Name: Slot 3
   m_TagString: Slot
@@ -1968,7 +2112,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2036,6 +2180,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1443246533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443246529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434aa8533287832418fd34034a2785e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonDragAndDrop: {fileID: 0}
 --- !u!1 &1518835654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2635,23 +2792,3 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &2141160507 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 879432368863057104, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
-  m_PrefabInstance: {fileID: 164243746}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2141160512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141160507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 072987eb3e4ebc746891e39592e8df64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannonRotation: {fileID: 1904652251}
-  cannonShooting: {fileID: 909830367}
-  isOverSlot: 0
