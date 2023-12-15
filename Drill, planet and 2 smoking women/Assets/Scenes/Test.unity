@@ -459,6 +459,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 879432368803351709, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 879432368803351709, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
       propertyPath: m_Name
       value: AutoCannon
       objectReference: {fileID: 0}
@@ -482,6 +486,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 879432368863057109, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 879432368863057109, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3153024323616917326, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
       propertyPath: rotationSpeed
       value: 1
@@ -490,6 +502,7 @@ PrefabInstance:
     - {fileID: 5531003967781251378, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
     - {fileID: 3153024323616917326, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
     - {fileID: 879432368863057115, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
+    - {fileID: 879432368863057108, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
 --- !u!1 &174347894
 GameObject:
@@ -836,28 +849,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434aa8533287832418fd34034a2785e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonDragAndDrop: {fileID: 0}
+  cannonDragAndDrop: {fileID: 415483214}
 --- !u!1 &415483211 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 879432368803351709, guid: fd791a0a11652984c85cce3ec27dd165, type: 3}
   m_PrefabInstance: {fileID: 164243746}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &415483213
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415483211}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.01906363, y: -0.33653376}
-  serializedVersion: 2
-  m_Radius: 0.15441218
 --- !u!114 &415483214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -872,6 +869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonRotation: {fileID: 1904652251}
   cannonShooting: {fileID: 909830367}
+  Xmore: 0
   isOverSlot: 0
 --- !u!50 &415483216
 Rigidbody2D:
@@ -894,6 +892,47 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &415483218
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415483211}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.48}
+    newSize: {x: 0.64, y: 0.48}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.049087964, y: 0.10455205}
+      - {x: 0.025833014, y: 0.11103529}
+      - {x: -0.026667783, y: 0.110517085}
+      - {x: -0.069883935, y: 0.09684138}
+      - {x: -0.11694139, y: 0.058708757}
+      - {x: -0.13572149, y: 0.029536948}
+      - {x: -0.14879338, y: -0.010755718}
+      - {x: -0.14916824, y: -0.02526857}
+      - {x: -0.14924258, y: -0.06321464}
+      - {x: -0.14911166, y: -0.08955034}
+      - {x: -0.1492775, y: -0.110543266}
+      - {x: 0.14911167, y: -0.11101887}
+      - {x: 0.149753, y: -0.009175078}
+      - {x: 0.13572016, y: 0.032162037}
+      - {x: 0.10016343, y: 0.07645921}
+      - {x: 0.06979597, y: 0.09809125}
 --- !u!1 &502388810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,7 +1057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434aa8533287832418fd34034a2785e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonDragAndDrop: {fileID: 0}
+  cannonDragAndDrop: {fileID: 415483214}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,7 +1765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434aa8533287832418fd34034a2785e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonDragAndDrop: {fileID: 0}
+  cannonDragAndDrop: {fileID: 415483214}
 --- !u!4 &1231637584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7907831345548119837, guid: 1903a60440b5ea440a50bce24d9a5c3c, type: 3}
@@ -2028,7 +2067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434aa8533287832418fd34034a2785e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonDragAndDrop: {fileID: 0}
+  cannonDragAndDrop: {fileID: 415483214}
 --- !u!1 &1410465768
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,7 +2231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434aa8533287832418fd34034a2785e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonDragAndDrop: {fileID: 0}
+  cannonDragAndDrop: {fileID: 415483214}
 --- !u!1 &1518835654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,6 +2455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 30
+  cannonDragAndDrop: {fileID: 415483214}
 --- !u!1 &1977364267
 GameObject:
   m_ObjectHideFlags: 0

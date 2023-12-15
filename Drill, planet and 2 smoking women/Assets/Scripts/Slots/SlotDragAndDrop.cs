@@ -8,21 +8,21 @@ public class SlotDragAndDrop : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("tr ent");
         if (other.CompareTag("Player"))
         {
             Debug.Log("tr ent sl");
             cannonDragAndDrop.isOverSlot = true;
+            cannonDragAndDrop.UpdateCurrentSlot(this); // Обновляем текущий слот
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("tr ex");
         if (other.CompareTag("Player"))
         {
             Debug.Log("tr ex sl");
             cannonDragAndDrop.isOverSlot = false;
+            cannonDragAndDrop.UpdateCurrentSlot(null); // Очищаем текущий слот
         }
     }
 }
