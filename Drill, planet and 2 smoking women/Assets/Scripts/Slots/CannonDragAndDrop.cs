@@ -8,26 +8,19 @@ public class CannonDragAndDrop : MonoBehaviour
     public bool Xmore = false;
     public bool isOverSlot;
     private bool isDragging = false;
-    private Vector3 initialPosition;
     private Vector3 offset;
-    private SlotDragAndDrop lastSlot; // Ќова€ переменна€ дл€ хранени€ последнего слота
-
-    // Ќова€ переменна€ дл€ хранени€ текущего слота
+    private SlotDragAndDrop lastSlot;
     private SlotDragAndDrop currentSlot;
 
-    void Start()
-    {
-        initialPosition = transform.position;
-    }
 
-    void OnMouseDown()
+    public void MouseDown()
     {
         isDragging = true;
         DeactivateCannon();
         offset = transform.position - GetMouseWorldPos();
     }
 
-    void OnMouseDrag()
+    public void MouseDrag()
     {
         if (isDragging)
         {
@@ -46,28 +39,34 @@ public class CannonDragAndDrop : MonoBehaviour
         }
     }
 
-    void OnMouseUp()
+    public void MouseUp()
     {
         isDragging = false;
-        Debug.Log(currentSlot);
-        Debug.Log(lastSlot);
-        // ѕровер€ем, есть ли текущий слот
+        //Debug.Log(currentSlot);
+        //Debug.Log(lastSlot);
         if (currentSlot != null)
         {
-            // ≈сли есть, возвращаемс€ к его позиции
-            transform.position = currentSlot.transform.position;
-            lastSlot = currentSlot; // —охран€ем текущий слот как последний слот
+            transform.position = currentSlot.transform.position + new Vector3(0, 0, -0.01f);
+            lastSlot = currentSlot;
         }
-        else if (lastSlot != null)
+        else
         {
-            // ≈сли нет текущего слота, но есть последний слот, возвращаемс€ к его позиции
-            transform.position = lastSlot.transform.position;
+            transform.position = lastSlot.transform.position + new Vector3(0, 0, -0.01f);
+            Vector3 newPosition = GetMouseWorldPos() + offset;
+            if (lastSlot.transform.position.x < 0 && newPosition.x > 0)
+            {
+                transform.Rotate(Vector3.forward, 180f);
+                Xmore = false;
+            }
+            else if (lastSlot.transform.position.x > 0 && newPosition.x < 0)
+            {
+                transform.Rotate(Vector3.forward, 180f);
+                Xmore = true;
+            }
         }
-
         ActivateCannon();
     }
 
-    // ћетод дл€ обновлени€ текущего слота
     public void UpdateCurrentSlot(SlotDragAndDrop slot)
     {
         currentSlot = slot;
@@ -83,11 +82,6 @@ public class CannonDragAndDrop : MonoBehaviour
     {
         cannonRotation.enabled = false;
         cannonShooting.enabled = false;
-    }
-
-    private void ReturnToInitialPosition()
-    {
-        transform.position = initialPosition;
     }
 
     private Vector3 GetMouseWorldPos()

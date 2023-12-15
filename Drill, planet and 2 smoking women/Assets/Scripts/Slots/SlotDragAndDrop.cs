@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SlotDragAndDrop : MonoBehaviour
@@ -12,7 +10,7 @@ public class SlotDragAndDrop : MonoBehaviour
         {
             Debug.Log("tr ent sl");
             cannonDragAndDrop.isOverSlot = true;
-            cannonDragAndDrop.UpdateCurrentSlot(this); // Обновляем текущий слот
+            cannonDragAndDrop.UpdateCurrentSlot(this);
         }
     }
 
@@ -22,7 +20,7 @@ public class SlotDragAndDrop : MonoBehaviour
         {
             Debug.Log("tr ex sl");
             cannonDragAndDrop.isOverSlot = false;
-            cannonDragAndDrop.UpdateCurrentSlot(null); // Очищаем текущий слот
+            cannonDragAndDrop.UpdateCurrentSlot(null);
         }
     }
 }
