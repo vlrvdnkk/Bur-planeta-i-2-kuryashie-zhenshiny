@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class SpawnZone : MonoBehaviour
 {
-    [Header("Настройки спавна")]
     [SerializeField] private Transform drill; // Бур
-    [SerializeField] private GameObject enemyPrefab; // Префаб врагов
+    [SerializeField] private GameObject enemyPrefabLeft; // Префаб врагов
+    [SerializeField] private GameObject enemyPrefabRight; // Префаб врагов
     [SerializeField] private float spawnInterval = 5.0f; // Интервал между спавнами врагов
     [SerializeField] private float spawnRange = 5.0f; // Диапазон для спавна врагов
     [SerializeField] private Transform spawnZoneLeft; // Зона спавна слева
@@ -38,8 +38,8 @@ public class SpawnZone : MonoBehaviour
         // Создаем врагов в случайных позициях в обеих зонах
         if (enemiesSpawned < totalEnemiesToSpawn - 1)
         {
-            Instantiate(enemyPrefab, spawnPositionLeft, Quaternion.identity);
-            Instantiate(enemyPrefab, spawnPositionRight, Quaternion.identity);
+            Instantiate(enemyPrefabLeft, spawnPositionLeft, Quaternion.identity);
+            Instantiate(enemyPrefabRight, spawnPositionRight, Quaternion.identity);
             enemiesSpawned += 2;
         }
         else
@@ -47,11 +47,11 @@ public class SpawnZone : MonoBehaviour
             // Если остался последний враг, то он может быть спавнен в любой из зон
             if (Random.Range(0, 2) == 0)
             {
-                Instantiate(enemyPrefab, spawnPositionLeft, Quaternion.identity);
+                Instantiate(enemyPrefabLeft, spawnPositionLeft, Quaternion.identity);
             }
             else
             {
-                Instantiate(enemyPrefab, spawnPositionRight, Quaternion.identity);
+                Instantiate(enemyPrefabRight, spawnPositionRight, Quaternion.identity);
             }
             enemiesSpawned++;
         }

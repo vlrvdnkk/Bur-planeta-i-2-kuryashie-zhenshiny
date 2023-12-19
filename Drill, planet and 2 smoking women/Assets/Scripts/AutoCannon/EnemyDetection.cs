@@ -1,33 +1,50 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
 {
     [SerializeField] private CannonDragAndDrop cannonDragAndDrop;
+    [SerializeField] private CannonRotation cannonRotation;
+    [SerializeField] private CannonShooting cannonShooting;
     [SerializeField] private int numberOfRays = 20;
     private float detectionRange = 10f;
     private float detectionAngle = 45f;
     private Vector2 forwardDirection;
     private Vector2 offset;
-    private LayerMask enemyLayer;
-    private LayerMask slotLayer;
+    [SerializeField] private LayerMask enemyLayerLeft;
+    [SerializeField] private LayerMask enemyLayerRight;
+
     void Update()
     {
-        DetectEnemies();
+        if (cannonDragAndDrop.Xmore)
+        {
+            DetectEnemies(enemyLayerRight);
+        }
+        else
+        {
+            DetectEnemies(enemyLayerLeft);
+        }
     }
 
-    void DetectEnemies()
+    void DetectEnemies(int layerMask)
     {
-        if (cannonDragAndDrop.Xmore)
+        if (layerMask == enemyLayerRight)
         {
             offset = new Vector2(0.205f, 0f);
         }
         else
+        {
             offset = new Vector2(-0.205f, 0f);
+        }
+
         Vector2 startPosition = (Vector2)transform.position + offset;
 
         forwardDirection = transform.up;
 
         float angleBetweenRays = detectionAngle / (numberOfRays - 1);
+
+        float closestDistance = float.MaxValue; // Добавлено для хранения ближайшего расстояния
+        GameObject closestEnemy = null; // Добавлено для хранения ближайшего врага
 
         for (int i = 0; i < numberOfRays; i++)
         {
@@ -35,12 +52,18 @@ public class EnemyDetection : MonoBehaviour
 
             Vector2 rayDirection = Quaternion.Euler(0, 0, currentAngle) * forwardDirection;
 
-            RaycastHit2D hit = Physics2D.Raycast(startPosition, rayDirection, detectionRange);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, detectionRange, layerMask);
 
             if (hit.collider != null)
             {
-                Debug.Log(hit.collider.gameObject);
-                HandleDetection();
+                float distance = Vector2.Distance(transform.position, hit.collider.transform.position);
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestEnemy = hit.collider.gameObject;
+                }
+
                 Debug.DrawRay(startPosition, rayDirection * detectionRange, Color.red);
             }
             else
@@ -48,37 +71,22 @@ public class EnemyDetection : MonoBehaviour
                 Debug.DrawRay(startPosition, rayDirection * detectionRange, Color.green);
             }
         }
-    }
-
-    void HandleDetection()
-    {
-        Debug.Log("Враг обнаружен");
-
-        GameObject closestEnemy = FindClosestEnemy();
 
         if (closestEnemy != null)
         {
-            Debug.Log("Ближайший враг: " + closestEnemy.name);
+            Debug.Log("true");
+            cannonShooting.enabled = true;
+            HandleDetection(closestEnemy);
+        }
+        else
+        {
+            Debug.Log("false");
+            cannonShooting.enabled = false;
         }
     }
 
-    GameObject FindClosestEnemy()
+    void HandleDetection(GameObject closestEnemy)
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject closestEnemy = null;
-        float closestDistance = float.MaxValue;
-
-        foreach (GameObject enemy in enemies)
-        {
-            float distance = Vector2.Distance(transform.position, enemy.transform.position);
-
-            if (distance < closestDistance)
-            {
-                closestEnemy = enemy;
-                closestDistance = distance;
-            }
-        }
-
-        return closestEnemy;
+        cannonRotation.RotateCannon(cannonDragAndDrop.Xmore, closestEnemy);
     }
 }

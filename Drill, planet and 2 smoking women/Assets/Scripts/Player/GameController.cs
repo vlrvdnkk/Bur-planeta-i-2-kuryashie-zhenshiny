@@ -6,7 +6,8 @@ using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private Transform _enemy;
+    [SerializeField] private GameObject enemyPrefabLeft; // Префаб врагов
+    [SerializeField] private GameObject enemyPrefabRight; // Префаб врагов
     [SerializeField] private Transform _bigEnemy;
     private float _timeBeforeSpawning = 1.5f;
     private float _timeBetweenEnemies = 0.25f;
@@ -74,8 +75,8 @@ public class GameController : MonoBehaviour
                         // Создаем врагов в случайных позициях в обеих зонах
                         if (currentNumberOfEnemies < enemiesPerWave - 1)
                         {
-                            Instantiate(_enemy, spawnPositionLeft, Quaternion.identity);
-                            Instantiate(_enemy, spawnPositionRight, Quaternion.identity);
+                            Instantiate(enemyPrefabLeft, spawnPositionLeft, Quaternion.identity);
+                            Instantiate(enemyPrefabRight, spawnPositionRight, Quaternion.identity);
                             currentNumberOfEnemies += 2;
                             yield return new WaitForSeconds(_timeBetweenEnemies);
                         }
@@ -84,11 +85,11 @@ public class GameController : MonoBehaviour
                             // Если остался последний враг, то он может быть спавнен в любой из зон
                             if (Random.Range(0, 2) == 0)
                             {
-                                Instantiate(_enemy, spawnPositionLeft, Quaternion.identity);
+                                Instantiate(enemyPrefabLeft, spawnPositionLeft, Quaternion.identity);
                             }
                             else
                             {
-                                Instantiate(_enemy, spawnPositionRight, Quaternion.identity);
+                                Instantiate(enemyPrefabRight, spawnPositionRight, Quaternion.identity);
                             }
                             currentNumberOfEnemies++;
                             yield return new WaitForSeconds(_timeBetweenEnemies);

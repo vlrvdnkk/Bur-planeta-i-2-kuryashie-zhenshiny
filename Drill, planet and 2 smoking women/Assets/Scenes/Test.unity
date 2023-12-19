@@ -1017,7 +1017,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonDragAndDrop: {fileID: 415483214}
+  cannonRotation: {fileID: 1904652251}
+  cannonShooting: {fileID: 909830367}
   numberOfRays: 20
+  enemyLayerLeft:
+    serializedVersion: 2
+    m_Bits: 64
+  enemyLayerRight:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &502388810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2507,6 +2515,14 @@ PrefabInstance:
       propertyPath: spawnZoneRight
       value: 
       objectReference: {fileID: 1360536002}
+    - target: {fileID: 813856761197115995, guid: afd7e0fedabf77846949c3fd27acc152, type: 3}
+      propertyPath: enemyPrefabLeft
+      value: 
+      objectReference: {fileID: 7054885617336074612, guid: 66cb71a56c8e84045bd48b26e0b2cf54, type: 3}
+    - target: {fileID: 813856761197115995, guid: afd7e0fedabf77846949c3fd27acc152, type: 3}
+      propertyPath: enemyPrefabRight
+      value: 
+      objectReference: {fileID: 7054885617336074612, guid: b0a3068f23f192a44b21feee3edcc96e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afd7e0fedabf77846949c3fd27acc152, type: 3}
 --- !u!1 &1904652246 stripped

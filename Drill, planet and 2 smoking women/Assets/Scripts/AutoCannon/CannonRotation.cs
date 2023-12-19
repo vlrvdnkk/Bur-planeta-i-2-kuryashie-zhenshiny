@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class CannonRotation : MonoBehaviour
@@ -6,14 +5,7 @@ public class CannonRotation : MonoBehaviour
     [SerializeField] private float rotationSpeed = 45.0f;
     [SerializeField] private CannonDragAndDrop cannonDragAndDrop;
 
-    private float currentRotation = 0f;
-    private bool rotatingRight = true;
     private bool xFirst = false;
-
-    //void Update()
-    //{
-    //    RotateCannon(cannonDragAndDrop.Xmore);
-    //}
 
     public void RotateCannon(bool x, GameObject gameObject)
     {
