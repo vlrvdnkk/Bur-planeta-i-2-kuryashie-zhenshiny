@@ -8,7 +8,7 @@ public class CannonDragAndDrop : MonoBehaviour
     public bool Xmore = false;
     public bool isOverSlot;
     private bool isDragging = false;
-    private Vector3 offset;
+    private Vector3 offsetMouse;
     private SlotDragAndDrop lastSlot;
     private SlotDragAndDrop currentSlot;
 
@@ -17,14 +17,14 @@ public class CannonDragAndDrop : MonoBehaviour
     {
         isDragging = true;
         DeactivateCannon();
-        offset = transform.position - GetMouseWorldPos();
+        offsetMouse = transform.position - GetMouseWorldPos();
     }
 
     public void MouseDrag()
     {
         if (isDragging)
         {
-            Vector3 newPosition = GetMouseWorldPos() + offset;
+            Vector3 newPosition = GetMouseWorldPos() + offsetMouse;
             if (newPosition.x > 0 && !Xmore)
             {
                 transform.Rotate(Vector3.forward, 180f);
@@ -42,8 +42,6 @@ public class CannonDragAndDrop : MonoBehaviour
     public void MouseUp()
     {
         isDragging = false;
-        //Debug.Log(currentSlot);
-        //Debug.Log(lastSlot);
         if (currentSlot != null)
         {
             transform.position = currentSlot.transform.position + new Vector3(0, 0, -0.01f);
@@ -52,7 +50,7 @@ public class CannonDragAndDrop : MonoBehaviour
         else
         {
             transform.position = lastSlot.transform.position + new Vector3(0, 0, -0.01f);
-            Vector3 newPosition = GetMouseWorldPos() + offset;
+            Vector3 newPosition = GetMouseWorldPos() + offsetMouse;
             if (lastSlot.transform.position.x < 0 && newPosition.x > 0)
             {
                 transform.Rotate(Vector3.forward, 180f);

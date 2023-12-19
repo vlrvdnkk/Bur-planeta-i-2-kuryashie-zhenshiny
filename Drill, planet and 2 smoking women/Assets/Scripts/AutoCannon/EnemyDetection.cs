@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
 {
-    public float detectionRange = 10f;
-    public float detectionAngle = 45f;
-
-    // Update is called once per frame
+    [SerializeField] private CannonDragAndDrop cannonDragAndDrop;
+    [SerializeField] private int numberOfRays = 20;
+    private float detectionRange = 10f;
+    private float detectionAngle = 45f;
+    private Vector2 forwardDirection;
+    private Vector2 offset;
+    private LayerMask enemyLayer;
+    private LayerMask slotLayer;
     void Update()
     {
         DetectEnemies();
@@ -13,44 +17,68 @@ public class EnemyDetection : MonoBehaviour
 
     void DetectEnemies()
     {
-        // Определяем направление, в котором направлен треугольник
-        Vector3 forwardDirection = transform.forward;
-
-        // Определяем левое и правое направление треугольника
-        Vector3 leftDirection = Quaternion.AngleAxis(-detectionAngle / 2, Vector3.up) * forwardDirection;
-        Vector3 rightDirection = Quaternion.AngleAxis(detectionAngle / 2, Vector3.up) * forwardDirection;
-        Debug.DrawRay(transform.position, leftDirection * detectionRange, Color.green);
-        Debug.DrawRay(transform.position, rightDirection * detectionRange, Color.blue);
-        Debug.DrawRay(transform.position, forwardDirection * detectionRange, Color.red);
-
-        // Пускаем лучи в направлениях треугольника
-        RaycastHit hit;
-
-        // Левый луч
-        if (Physics.Raycast(transform.position, leftDirection, out hit, detectionRange) && hit.collider.CompareTag("Enemy"))
+        if (cannonDragAndDrop.Xmore)
         {
-            HandleDetection(hit.collider.gameObject);
-            Debug.DrawRay(transform.position, leftDirection * detectionRange, Color.green);
+            offset = new Vector2(0.205f, 0f);
         }
+        else
+            offset = new Vector2(-0.205f, 0f);
+        Vector2 startPosition = (Vector2)transform.position + offset;
 
-        // Правый луч
-        if (Physics.Raycast(transform.position, rightDirection, out hit, detectionRange) && hit.collider.CompareTag("Enemy"))
-        {
-            HandleDetection(hit.collider.gameObject);
-            Debug.DrawRay(transform.position, rightDirection * detectionRange, Color.blue);
-        }
+        forwardDirection = transform.up;
 
-        // Центральный луч
-        if (Physics.Raycast(transform.position, forwardDirection, out hit, detectionRange) && hit.collider.CompareTag("Enemy"))
+        float angleBetweenRays = detectionAngle / (numberOfRays - 1);
+
+        for (int i = 0; i < numberOfRays; i++)
         {
-            HandleDetection(hit.collider.gameObject);
-            Debug.DrawRay(transform.position, forwardDirection * detectionRange, Color.red);
+            float currentAngle = -detectionAngle / 2 + i * angleBetweenRays;
+
+            Vector2 rayDirection = Quaternion.Euler(0, 0, currentAngle) * forwardDirection;
+
+            RaycastHit2D hit = Physics2D.Raycast(startPosition, rayDirection, detectionRange);
+
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider.gameObject);
+                HandleDetection();
+                Debug.DrawRay(startPosition, rayDirection * detectionRange, Color.red);
+            }
+            else
+            {
+                Debug.DrawRay(startPosition, rayDirection * detectionRange, Color.green);
+            }
         }
     }
 
-    void HandleDetection(GameObject enemy)
+    void HandleDetection()
     {
-        // Ваш код для обработки обнаружения врага
-        Debug.Log("Враг обнаружен: " + enemy.name);
+        Debug.Log("Враг обнаружен");
+
+        GameObject closestEnemy = FindClosestEnemy();
+
+        if (closestEnemy != null)
+        {
+            Debug.Log("Ближайший враг: " + closestEnemy.name);
+        }
+    }
+
+    GameObject FindClosestEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closestEnemy = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = Vector2.Distance(transform.position, enemy.transform.position);
+
+            if (distance < closestDistance)
+            {
+                closestEnemy = enemy;
+                closestDistance = distance;
+            }
+        }
+
+        return closestEnemy;
     }
 }
