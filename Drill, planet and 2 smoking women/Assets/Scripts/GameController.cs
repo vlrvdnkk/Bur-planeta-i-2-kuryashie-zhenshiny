@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] private MenuTrigger menuTrigger;
     [SerializeField] private GameObject enemyPrefabLeft; // Префаб врагов
     [SerializeField] private GameObject enemyPrefabRight; // Префаб врагов
     [SerializeField] private Transform _bigEnemy;
@@ -40,6 +41,7 @@ public class GameController : MonoBehaviour
         {
             if (currentNumberOfEnemies <= 0)
             {
+                menuTrigger.UpMenu();
                 _waveNumber++;
                 _enemyScr.health = Convert.ToInt32(Math.Round(Convert.ToDouble(_enemyScr.health) * 1.45));
                 _moveTw.speed = _moveTw.speed * 1.1f;

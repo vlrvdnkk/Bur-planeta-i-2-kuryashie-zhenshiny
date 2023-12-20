@@ -7,7 +7,7 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] private CannonRotation cannonRotation;
     [SerializeField] private CannonShooting cannonShooting;
     [SerializeField] private int numberOfRays = 20;
-    private float detectionRange = 10f;
+    [SerializeField] private float detectionRange = 10f;
     private float detectionAngle = 45f;
     private Vector2 forwardDirection;
     private Vector2 offset;
@@ -74,13 +74,11 @@ public class EnemyDetection : MonoBehaviour
 
         if (closestEnemy != null)
         {
-            Debug.Log("true");
             cannonShooting.enabled = true;
             HandleDetection(closestEnemy);
         }
         else
         {
-            Debug.Log("false");
             cannonShooting.enabled = false;
         }
     }
