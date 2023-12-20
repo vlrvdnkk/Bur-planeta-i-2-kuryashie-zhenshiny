@@ -1,9 +1,14 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MenuTrigger : MonoBehaviour
 {
-    [SerializeField] private RectTransform panelRect;
+    [SerializeField] private CannonShooting cannonShooting;
+    [SerializeField] private RotationScript rotationScript;
+    [SerializeField] private ShootPointScript shootPointScript;
+    [SerializeField] private EventTrigger eventTrigger;
     [SerializeField] private Button toggleButton;
     [SerializeField] private float moveSpeed = 5f;
     private bool isMenuVisible = false;
@@ -11,6 +16,8 @@ public class MenuTrigger : MonoBehaviour
 
     void Start()
     {
+        EnableScripts(false);
+        toggleButton.interactable = false;
         animator = GetComponent<Animator>();
         toggleButton.onClick.AddListener(DownMenu);
     }
@@ -21,8 +28,6 @@ public class MenuTrigger : MonoBehaviour
         {
             animator.SetInteger("State", 1);
             isMenuVisible = true;
-
-            // Запускаем корутину, которая останавливает время после проигрывания анимации
             StartCoroutine(WaitForAnimation());
         }
     }
@@ -33,16 +38,25 @@ public class MenuTrigger : MonoBehaviour
         {
             Time.timeScale = 1;
             animator.SetInteger("State", 2);
+            EnableScripts(true);
+            toggleButton.interactable = false;
             isMenuVisible = false;
         }
     }
 
+    private void EnableScripts(bool enable)
+    {
+        eventTrigger.enabled = enable;
+        cannonShooting.enabled = enable;
+        shootPointScript.enabled = enable;
+        rotationScript.enabled = enable;
+    }
+
     private System.Collections.IEnumerator WaitForAnimation()
     {
-        // Ждем, пока текущая анимация не завершится
+        EnableScripts(false);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-
-        // После завершения анимации выполните действия, которые вам нужны
+        toggleButton.interactable = true;
         Time.timeScale = 0;
     }
 }

@@ -8,6 +8,7 @@ public class SlotDragAndDrop : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("tr sl ent");
             cannonDragAndDrop.isOverSlot = true;
             cannonDragAndDrop.UpdateCurrentSlot(this);
         }
@@ -17,6 +18,7 @@ public class SlotDragAndDrop : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("tr sl ex");
             cannonDragAndDrop.isOverSlot = false;
             cannonDragAndDrop.UpdateCurrentSlot(null);
         }
