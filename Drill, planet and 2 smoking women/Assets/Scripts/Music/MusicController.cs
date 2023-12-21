@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MusicController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Slider volumeSlider;
+    private AudioSource audioSource;
+
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+        volumeSlider.value = audioSource.volume;
+        volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnVolumeChanged(float volume)
     {
-        
+        audioSource.volume = volume;
     }
 }
