@@ -37,17 +37,6 @@ public class MenuTrigger : MonoBehaviour
         }
     }
 
-<<<<<<< Updated upstream
-=======
-    public void EnableScripts(bool enable)
-    {
-        eventTrigger.enabled = enable;
-        cannonShooting.enabled = enable;
-        shootPointScript.enabled = enable;
-        rotationScript.enabled = enable;
-    }
-
->>>>>>> Stashed changes
     private System.Collections.IEnumerator WaitForAnimation()
     {
         // ∆дем, пока текуща€ анимаци€ не завершитс€
