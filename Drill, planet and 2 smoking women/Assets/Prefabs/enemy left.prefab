@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 487995203979049538}
   - component: {fileID: -4236580961347438593}
   - component: {fileID: -7875291645117156423}
-  - component: {fileID: 2875865345035445847}
+  - component: {fileID: 9145023503961427692}
   m_Layer: 6
   m_Name: enemy left
   m_TagString: Enemy
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7054885617336074612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.14, y: 2.64, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: cb370a9270d463546b9f1006cae2f851, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -153,9 +153,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0017143488, y: -0.00035881996}
+  m_Offset: {x: 0.021428943, y: -0.021187723}
   serializedVersion: 2
-  m_Radius: 0.090310656
+  m_Radius: 0.26388466
 --- !u!82 &-7875291645117156423
 AudioSource:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &2875865345035445847
+--- !u!95 &9145023503961427692
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ Animator:
   m_GameObject: {fileID: 7054885617336074612}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3dafd4575f3108a4fbec0d831b7bf59c, type: 2}
+  m_Controller: {fileID: 9100000, guid: be4453737ceb7f84f814c5502bde6bd8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

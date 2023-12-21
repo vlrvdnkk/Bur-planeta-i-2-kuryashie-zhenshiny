@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -44,7 +44,7 @@ public class MenuTrigger : MonoBehaviour
         }
     }
 
-    private void EnableScripts(bool enable)
+    public void EnableScripts(bool enable)
     {
         eventTrigger.enabled = enable;
         cannonShooting.enabled = enable;
@@ -52,7 +52,7 @@ public class MenuTrigger : MonoBehaviour
         rotationScript.enabled = enable;
     }
 
-    private System.Collections.IEnumerator WaitForAnimation()
+    private IEnumerator WaitForAnimation()
     {
         EnableScripts(false);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
