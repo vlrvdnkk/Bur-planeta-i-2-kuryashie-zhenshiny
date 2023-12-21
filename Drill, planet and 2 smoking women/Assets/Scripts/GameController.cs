@@ -136,7 +136,6 @@ public class GameController : MonoBehaviour
     {
         _scoreText.color = new Color(255, 0, 0);
         StartCoroutine(Timer());
-
     }
 
     IEnumerator Timer()

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class RotationScript : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer; // Ссылка на компонент SpriteRenderer объекта
-    public Sprite normalSprite; // Обычный спрайт
-    public Sprite mirroredSprite; // Зеркальный спрайт
+    //public SpriteRenderer spriteRenderer; // Ссылка на компонент SpriteRenderer объекта
+    //public Sprite normalSprite; // Обычный спрайт
+    //public Sprite mirroredSprite; // Зеркальный спрайт
 
     void Update()
     {
@@ -22,14 +22,14 @@ public class RotationScript : MonoBehaviour
         // Вращаем объект вокруг оси Z на 360 градусов
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);
 
-        // В зависимости от угла, выбираем спрайт
-        if ((angle >= 0 && angle < 90) || (angle >= -90 && angle < 0))
-        {
-            spriteRenderer.sprite = mirroredSprite; // Зеркальный спрайт
-        }
-        else
-        {
-            spriteRenderer.sprite = normalSprite; // Обычный спрайт
-        }
+        //// В зависимости от угла, выбираем спрайт
+        //if ((angle >= 0 && angle < 90) || (angle >= -90 && angle < 0))
+        //{
+        //    spriteRenderer.sprite = mirroredSprite; // Зеркальный спрайт
+        //}
+        //else
+        //{
+        //    spriteRenderer.sprite = normalSprite; // Обычный спрайт
+        //}
     }
 }

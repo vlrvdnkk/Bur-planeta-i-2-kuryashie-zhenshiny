@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HpBar : MonoBehaviour
 {
-    public int _curHealth = 0;
-    public int _maxHealth = 100;   
-    [SerializeField] private Slider _healthBar;
-    //[SerializeField] private Slider _bossBar;
+    public int curHealth = 0;
+    public int maxHealth = 100;   
+    [SerializeField] private Slider healthBar;
+    [SerializeField] private GameOverPanel gameOverPanel;
     //[SerializeField] private SpriteRenderer _image;
     //[SerializeField] private Sprite _crashedObservatory;
     //[SerializeField] private Animator anim;
@@ -17,21 +15,21 @@ public class HpBar : MonoBehaviour
 
     public void Start()
     {
-        _curHealth = _maxHealth;
+        curHealth = maxHealth;
     }
 
     public void DamagePlayer(int damage)
     {
-        _curHealth -= damage;
-        _healthBar.value = _curHealth;
+        curHealth -= damage;
+        healthBar.value = curHealth;
         //if (_curHealth <= 25)
         //{
         //    _image.sprite = _crashedObservatory;
         //}
-        //if (_curHealth <= 0)
-        //{
-        //    anim.SetBool("obDeath", true);
-        //}
+        if (curHealth <= 0)
+        {
+            gameOverPanel.GameOver();
+        }
     }
     //public void BossBar(int health)
     //{
