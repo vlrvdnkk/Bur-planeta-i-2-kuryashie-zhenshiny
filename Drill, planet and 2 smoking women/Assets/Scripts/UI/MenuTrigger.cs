@@ -1,14 +1,9 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MenuTrigger : MonoBehaviour
 {
-    [SerializeField] private CannonShooting cannonShooting;
-    [SerializeField] private RotationScript rotationScript;
-    [SerializeField] private ShootPointScript shootPointScript;
-    [SerializeField] private EventTrigger eventTrigger;
+    [SerializeField] private RectTransform panelRect;
     [SerializeField] private Button toggleButton;
     [SerializeField] private float moveSpeed = 5f;
     private bool isMenuVisible = false;
@@ -16,8 +11,6 @@ public class MenuTrigger : MonoBehaviour
 
     void Start()
     {
-        EnableScripts(false);
-        toggleButton.interactable = false;
         animator = GetComponent<Animator>();
         toggleButton.onClick.AddListener(DownMenu);
     }
@@ -28,6 +21,8 @@ public class MenuTrigger : MonoBehaviour
         {
             animator.SetInteger("State", 1);
             isMenuVisible = true;
+
+            // Запускаем корутину, которая останавливает время после проигрывания анимации
             StartCoroutine(WaitForAnimation());
         }
     }
@@ -38,19 +33,13 @@ public class MenuTrigger : MonoBehaviour
         {
             Time.timeScale = 1;
             animator.SetInteger("State", 2);
-            EnableScripts(true);
-            toggleButton.interactable = false;
             isMenuVisible = false;
         }
     }
 
-<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
     public void EnableScripts(bool enable)
-=======
-    private void EnableScripts(bool enable)
->>>>>>> 6a2d5697a4512f3386a100076b4a8326bfb921be
     {
         eventTrigger.enabled = enable;
         cannonShooting.enabled = enable;
@@ -58,15 +47,13 @@ public class MenuTrigger : MonoBehaviour
         rotationScript.enabled = enable;
     }
 
-<<<<<<< HEAD
 >>>>>>> Stashed changes
-=======
->>>>>>> 6a2d5697a4512f3386a100076b4a8326bfb921be
     private System.Collections.IEnumerator WaitForAnimation()
     {
-        EnableScripts(false);
+        // Ждем, пока текущая анимация не завершится
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-        toggleButton.interactable = true;
+
+        // После завершения анимации выполните действия, которые вам нужны
         Time.timeScale = 0;
     }
 }
