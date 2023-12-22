@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9061614282974151471}
   - component: {fileID: 6111632427967246173}
   - component: {fileID: 5049035194186561485}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,8 +102,6 @@ MonoBehaviour:
   lifetime: 2
   speed: 10
   damage: 1
-  damageA: 1
-  damageB: 3
 --- !u!61 &6111632427967246173
 BoxCollider2D:
   m_ObjectHideFlags: 0

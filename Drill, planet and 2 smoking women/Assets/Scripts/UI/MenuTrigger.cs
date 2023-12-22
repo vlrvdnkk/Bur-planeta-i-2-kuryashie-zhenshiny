@@ -9,6 +9,7 @@ public class MenuTrigger : MonoBehaviour
     [SerializeField] private RotationScript rotationScript;
     [SerializeField] private ShootPointScript shootPointScript;
     [SerializeField] private EventTrigger eventTrigger;
+    [SerializeField] private MusicController musicController;
     [SerializeField] private Button toggleButton;
     [SerializeField] private float moveSpeed = 5f;
     private bool isMenuVisible = false;
@@ -26,6 +27,7 @@ public class MenuTrigger : MonoBehaviour
     {
         if (!isMenuVisible)
         {
+            musicController.AudioChange(1);
             animator.SetInteger("State", 1);
             isMenuVisible = true;
             StartCoroutine(WaitForAnimation());
@@ -36,6 +38,7 @@ public class MenuTrigger : MonoBehaviour
     {
         if (isMenuVisible)
         {
+            musicController.AudioChange(0);
             Time.timeScale = 1;
             animator.SetInteger("State", 2);
             EnableScripts(true);

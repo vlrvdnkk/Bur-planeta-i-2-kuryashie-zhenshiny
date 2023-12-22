@@ -390,7 +390,7 @@ MonoBehaviour:
   cannonRotation: {fileID: 5486072541434922724}
   cannonShooting: {fileID: 5486072540356706784}
   Xmore: 0
-  isOverSlot: 0
+  IsOverSlot: 0
 --- !u!114 &5486072539971431531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa88672932dce1f499eb204b5e442a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _laser: {fileID: 5530794838305143104, guid: bf819088e7e63aa4399d93f3ffa087c8, type: 3}
-  _laserDistance: 0.2
-  _timeBetweenFires: 0.3
-  _shootSound: {fileID: 0}
+  laser: {fileID: 5530794838305143104, guid: bf819088e7e63aa4399d93f3ffa087c8, type: 3}
+  laserDistance: 0.2
+  timeBetweenFires: 0.3
+  shootSound: {fileID: 8300000, guid: 94b82dd7db0771c43a69e75ae1ce72c4, type: 3}

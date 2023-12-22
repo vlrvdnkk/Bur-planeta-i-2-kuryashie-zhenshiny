@@ -24,8 +24,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6133309347140521930}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalPosition: {x: 0, y: 0.26, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6133309348635276188}
@@ -77,11 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a0f8de0a6b8b145b19d87ae38e7db0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _laser: {fileID: 5530794838305143104, guid: bf819088e7e63aa4399d93f3ffa087c8, type: 3}
-  _laserDistance: 0.2
-  _timeBetweenFires: 0.3
-  _shootButton: 43010000
-  _shootSound: {fileID: 8300000, guid: ea352efff4926ff49a10dd1af9dbf2d8, type: 3}
+  laser: {fileID: 5530794838305143104, guid: bf819088e7e63aa4399d93f3ffa087c8, type: 3}
+  laserDistance: 0.2
+  timeBetweenFires: 0.3
+  shootButton: 
+  shootSound: {fileID: 8300000, guid: 94b82dd7db0771c43a69e75ae1ce72c4, type: 3}
 --- !u!82 &6133309347302068492
 AudioSource:
   m_ObjectHideFlags: 0

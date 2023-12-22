@@ -6,7 +6,7 @@ public class CannonDragAndDrop : MonoBehaviour
     [SerializeField] private CannonShooting cannonShooting;
 
     public bool Xmore = false;
-    public bool isOverSlot;
+    public bool IsOverSlot;
     private bool isDragging = false;
     private Vector3 offsetMouse;
     private SlotDragAndDrop lastSlot;

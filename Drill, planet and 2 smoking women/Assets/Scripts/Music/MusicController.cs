@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MusicController : MonoBehaviour
 {
     [SerializeField] private Slider volumeSlider;
+    [SerializeField] private AudioClip[] audio = new AudioClip[2];
     private AudioSource audioSource;
 
     void Start()
@@ -15,8 +16,16 @@ public class MusicController : MonoBehaviour
         volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
     }
 
-    void OnVolumeChanged(float volume)
+    private void OnVolumeChanged(float volume)
     {
         audioSource.volume = volume;
+    }
+    public void AudioChange(int num)
+    {
+        if (audioSource.clip != audio[num])
+        {
+            audioSource.clip = audio[num];
+            audioSource.Play();
+        }
     }
 }

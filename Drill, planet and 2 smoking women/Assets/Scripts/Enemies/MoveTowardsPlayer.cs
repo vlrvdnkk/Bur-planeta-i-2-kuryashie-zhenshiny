@@ -3,7 +3,7 @@ using UnityEngine;
 public class MoveTowardsPlayer : MonoBehaviour
 {
     private Transform player;
-    public float speed = 0.5f;
+    public float Speed = 0.5f;
 
     void Start()
     {
@@ -14,7 +14,7 @@ public class MoveTowardsPlayer : MonoBehaviour
     {
         Vector2 delta = player.position - transform.position;
         delta.Normalize();
-        float moveSpeed = speed * Time.deltaTime;
+        float moveSpeed = Speed * Time.deltaTime;
         transform.position = (Vector2)transform.position + delta * moveSpeed;
     }
 }
